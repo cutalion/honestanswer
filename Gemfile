@@ -41,4 +41,5 @@ end
 
 group :test do
   gem 'mongoid-rspec'
+  gem 'capybara'
 end
