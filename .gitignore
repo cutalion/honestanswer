@@ -6,3 +6,5 @@ tmp/
 .sass-cache/
 *.swp
 .rspec
+.watchr
+.rspec

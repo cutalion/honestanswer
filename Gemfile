@@ -34,6 +34,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :development do
+  gem 'watchr'
+end
+
 group :test do
   gem 'mongoid-rspec'
 end
