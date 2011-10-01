@@ -1,4 +1,6 @@
 class Question
+  MAX_TOKEN_LENGTH = 12
+
   include Mongoid::Document
   field :text,  :type => String
   field :token, :type => String
@@ -22,7 +24,7 @@ class Question
 
   def generate_token
     begin
-      self.token = EncodeWithAlphabet.encode( rand(98079714615416886934934209737619787751599303819750539264) )
+      self.token = EncodeWithAlphabet.encode( rand(EncodeWithAlphabet::ALPHABET.size ** MAX_TOKEN_LENGTH) )
     end unless Question.where(:token => self.token).exists?
   end
 end

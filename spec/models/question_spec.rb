@@ -20,6 +20,8 @@ describe Question do
     question.token.should == old_token
   end
 
+  specify { Question::MAX_TOKEN_LENGTH.should == 12 }
+
   describe "#find_by_token" do
     before { @question1 = Question.make! }
     before { @question2 = Question.make! }

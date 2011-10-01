@@ -1,8 +1,11 @@
 Honestanswer::Application.routes.draw do
-  get "welcome/index"
+  get "questions/show"
 
   root :to => "welcome#index"
 
+  resources :questions, :only => [:create, :show] do
+    resources :answers, :only => :create
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

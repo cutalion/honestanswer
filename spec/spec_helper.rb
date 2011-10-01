@@ -8,6 +8,7 @@ require 'rspec/rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+
   config.include Mongoid::Matchers
 
   # == Mock Framework
@@ -26,4 +27,11 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  config.before(:each) do
+    Machinist.reset_before_test
+    DatabaseCleaner.orm = "mongoid" 
+    DatabaseCleaner.strategy = :truncation, {:except => %w[ neighborhoods ]}
+    DatabaseCleaner.clean
+  end
 end
