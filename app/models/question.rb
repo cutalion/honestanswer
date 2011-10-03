@@ -1,9 +1,12 @@
 class Question
+  include Mongoid::Document
+
   MAX_TOKEN_LENGTH = 12
 
-  include Mongoid::Document
   field :text,  :type => String
   field :token, :type => String
+
+  embeds_many :answers
 
   validates :text, :token, :presence => true
   validates :token, :uniqueness => true

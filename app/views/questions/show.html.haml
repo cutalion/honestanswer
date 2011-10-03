@@ -1,1 +1,8 @@
 %h1= @question.text
+
+= simple_form_for [@question, @answer] do |f|
+  = f.input :text
+  = f.submit 'Answer'
+
+- @question.answers.each do |answer|
+  %p= answer.text

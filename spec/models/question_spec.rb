@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Question do
+  it { should embed_many :answers }
+
   it { should have_field :text }
   it { should have_field :token }
 
