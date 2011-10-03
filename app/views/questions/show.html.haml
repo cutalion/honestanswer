@@ -1,7 +1,7 @@
 %h1= @question.text
 
 = simple_form_for [@question, @answer] do |f|
-  = f.input :text
+  = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest'
   = f.submit 'Answer'
 
 - @question.answers.each do |answer|

@@ -1,9 +1,20 @@
 !!!
 %html
   %head
-    %title Honestanswer
+    %title Honest Answer
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
+    #header
+      = link_to 'Honest Answer', root_path, :class => 'logo'
+      -# %ul.user_menu
+      -#   - if current_user
+      -#     %li== Hello, #{current_user.username}
+      -#     %li= link_to "Sign out", logout_path, :method => :delete
+      -#   - else
+      -#     %li= link_to "Sign in", login_path
+      -#     %li= link_to "Sign up", signup_path
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :class => "flash #{name}" if msg.is_a?(String)
+    #content= yield

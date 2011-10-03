@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require reset
+ *= require typography
+ *= require forms
+ *= require ie
+ *= require_self
+*/
+
+@import "bourbon";
+
+$gw-column: 45px;
+$gw-gutter: 16px;
+$box-shadow-color: #888;
+$text-color: #444;
+$text-shadow-color: #eee;
+$page-bg-color: #d0dddd;
+$content-bg-color: #c0cccc;
+
+body {
+  font-size: golden-ratio(16px, 0);
+  width: grid-width(16);
+  margin: 0 auto;
+  background-color: $page-bg-color;
+  color: $text-color;
+}
+
+div {
+  text-align: left;
+  background-color: transparent;
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px $text-shadow-color;
+}
+
+.flash {
+  border-width: 0;
+  margin: 0;
+  margin-left: grid-width(1);
+  width: grid-width(14);
+  @include border-radius(0 0 10px 10px);
+  @include box-shadow(1px 2px 3px 0 $box-shadow-color);
+}
+
+#header {
+  font-size: golden-ratio(14px, 1);
+  text-shadow: 1px 1px $text-shadow-color;
+  padding: $gw-gutter;
+  overflow: hidden;
+  position: relative;
+
+  @include border-radius(0px 0px 10px 10px);
+  @include box-shadow(1px 1px 2px 0 $box-shadow-color);
+  @include linear-gradient($page-bg-color, $content-bg-color);
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+    font-size: golden-ratio(14px, 0);
+
+    li { 
+      display: inline-block; 
+      margin: 0 0.25em;
+    }
+  }
+
+  .logo { 
+    float: left; 
+    text-decoration: none;
+    color: $text-color;
+  }
+}
+
+#content {
+  padding: $gw-gutter;
+  margin-top: $gw-gutter;
+  @include border-radius(10px);
+  @include box-shadow(1px 1px 2px 0 $box-shadow-color);
+  @include linear-gradient($page-bg-color, $content-bg-color);
+}
+
+@import "welcome";
+@import "custom_form";
