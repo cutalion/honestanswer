@@ -6,3 +6,4 @@ else
 fi
 
 alias ss='rails s'
+export MONGOHQ_URL=mongodb://user:password@127.0.0.1/honestanswer_production
