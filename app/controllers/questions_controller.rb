@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
 
   def create
     create! do |success, failure|
-      success.html { redirect_to resource }
+      success.html { flash[:notice] = nil; redirect_to resource }
       failure.html { redirect_to root_url }
     end
   end
