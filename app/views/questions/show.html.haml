@@ -5,4 +5,6 @@
   = f.submit 'Answer'
 
 - @question.answers.each do |answer|
-  %p= answer.text
+  .answer
+    = timeago(answer.updated_at)
+    %p= answer.text
