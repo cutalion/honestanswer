@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
 
   def create
     create! do |success, failure|
+      success.html { flash[:notice] = nil; redirect_to question_url(@question) }
       failure.html { 
         flash[:alert] = 'Your answer cannot be saved.'
         redirect_to question_url(@question) 

@@ -8,6 +8,7 @@ describe AnswersController do
       it { should redirect_to question_url(question) }
       specify { last_answer.text.should == 'answer' }
       specify { last_answer.question.should == question }
+      specify { flash[:notice].should be_nil }
     end
     context 'with empty text' do
       before { post :create, :answer => { :text => '' }, :question_id => question.token }
