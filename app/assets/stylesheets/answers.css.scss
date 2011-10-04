@@ -6,5 +6,12 @@
   .timeago {
     float: right;
     margin-left: 2em;
+    margin-bottom: 1em;
+    color: tint($text-color, 60%);
+    text-shadow: 1px 1px shade($text-shadow-color, 10%);
+  }
+
+  p {
+    width: grid-width(12);
   }
 }
