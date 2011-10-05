@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   inherit_resources
   actions :create, :show
   defaults :finder => :find_by_token
+  after_filter :store_question, :only => :show
 
   def show
     show! do
@@ -14,5 +15,12 @@ class QuestionsController < ApplicationController
       success.html { flash[:notice] = nil; redirect_to resource }
       failure.html { redirect_to root_url }
     end
+  end
+
+  protected
+
+  def store_question
+    questions = (cookies[:viewed_questions] || "").split(",") 
+    cookies[:viewed_questions] = questions.unshift(@question.token).uniq.join(",")
   end
 end

@@ -1,3 +1,8 @@
 = simple_form_for @question do |f|
   = f.input_field :text, :as => :string, :label => false, :placeholder => 'Ask anything important for you'
   = f.submit 'Ask'
+
+- if @viewed_questions.any?
+  %aside
+    - @viewed_questions.each do |question|
+      %p.question= link_to question.text, question_url(question)
