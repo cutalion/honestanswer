@@ -89,7 +89,8 @@ header {
     float: right;
     margin-left: 2em;
     margin-bottom: 1em;
-    color: tint($text-color, 60%);
+    color: tint($text-color, 35%);
+    font-size: golden-ratio(14px, 0);
     text-shadow: 1px 1px shade($text-shadow-color, 10%);
   }
 
