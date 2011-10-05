@@ -1,5 +1,5 @@
 %h1= @question.text
-= set_meta_tags :title => @question.text
+- set_meta_tags :title => @question.text
 
 = simple_form_for [@question, @answer] do |f|
   = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest'
