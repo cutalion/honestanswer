@@ -26,6 +26,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'inherited_resources'
 gem 'encode_with_alphabet'
+gem 'meta-tags', :require => 'meta_tags'
 
 # Use unicorn as the web server
 # gem 'unicorn'
