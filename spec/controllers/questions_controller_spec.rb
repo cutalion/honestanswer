@@ -5,10 +5,13 @@ describe QuestionsController do
   let(:question2) { Question.make! }
 
   describe "GET 'show'" do
+    let(:cookies)  { HashWithIndifferentAccess.new }
+    before         { controller.stub(:cookies) { cookies } }
     before         { get :show, :id => question1.token }
     it             { should respond_with :success }
     specify        { assigns(:question).should == question1 }
-    specify        { cookies[:viewed_questions].should == question1.token }
+    specify        { cookies[:viewed_questions][:value].should == question1.token }
+    specify        { cookies[:viewed_questions][:expires].should > 364.days.from_now }
   end
 
   describe "show another question" do

@@ -21,6 +21,6 @@ class QuestionsController < ApplicationController
 
   def store_question
     questions = (cookies[:viewed_questions] || "").split(",") 
-    cookies[:viewed_questions] = questions.unshift(@question.token).uniq.join(",")
+    cookies[:viewed_questions] = { :value => questions.unshift(@question.token).uniq.join(","), :expires => 1.year.from_now }
   end
 end
