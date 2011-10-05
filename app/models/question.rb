@@ -1,5 +1,6 @@
 class Question
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   MAX_TOKEN_LENGTH = 12
 

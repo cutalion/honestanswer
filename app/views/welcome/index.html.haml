@@ -3,6 +3,7 @@
   = f.submit 'Ask'
 
 - if @viewed_questions.any?
-  %aside
-    - @viewed_questions.each do |question|
-      %p.question= link_to question.text, question_url(question)
+  - @viewed_questions.each do |question|
+    .question
+      = timeago( (question.answers.last || question).updated_at )
+      %p= link_to question.text, question_url(question)

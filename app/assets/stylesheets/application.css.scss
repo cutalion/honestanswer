@@ -45,7 +45,7 @@ h1, h2, h3 {
   @include box-shadow(1px 2px 3px 0 $box-shadow-color);
 }
 
-#header {
+header {
   font-size: golden-ratio(14px, 1);
   text-shadow: 1px 1px $text-shadow-color;
   padding: $gw-gutter;
@@ -82,6 +82,20 @@ h1, h2, h3 {
   @include border-radius(10px);
   @include box-shadow(1px 1px 2px 0 $box-shadow-color);
   @include linear-gradient($page-bg-color, $content-bg-color);
+}
+
+.answer, .question {
+  .timeago {
+    float: right;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    color: tint($text-color, 60%);
+    text-shadow: 1px 1px shade($text-shadow-color, 10%);
+  }
+
+  p {
+    width: grid-width(12);
+  }
 }
 
 @import "welcome";
