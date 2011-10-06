@@ -20,7 +20,7 @@ $page-bg-color: #d0dddd;
 $content-bg-color: #c0cccc;
 
 body {
-  font-size: golden-ratio(16px, 0);
+  font-size: 100%;
   width: grid-width(16);
   margin: 0 auto;
   background-color: $page-bg-color;
@@ -53,15 +53,14 @@ header {
   position: relative;
 
   @include border-radius(0px 0px 10px 10px);
-  @include box-shadow(1px 1px 2px 0 $box-shadow-color);
-  @include linear-gradient($page-bg-color, $content-bg-color);
+  @include box-shadow(1px 1px 2px 0 $box-shadow-color, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.4));
 
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
     float: right;
-    font-size: golden-ratio(14px, 0);
+    font-size: 0.813em;
 
     li { 
       display: inline-block; 
@@ -80,8 +79,7 @@ header {
   padding: $gw-gutter;
   margin-top: $gw-gutter;
   @include border-radius(10px);
-  @include box-shadow(1px 1px 2px 0 $box-shadow-color);
-  @include linear-gradient($page-bg-color, $content-bg-color);
+  @include box-shadow(1px 1px 2px 0 $box-shadow-color, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.4));
 }
 
 .answer, .question {
@@ -90,13 +88,22 @@ header {
     margin-left: 2em;
     margin-bottom: 1em;
     color: tint($text-color, 35%);
-    font-size: golden-ratio(14px, 0);
+    font-size: 0.813em;
     text-shadow: 1px 1px shade($text-shadow-color, 10%);
   }
 
   p {
     width: grid-width(12);
   }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  padding-top: 1em;
+  background-color: $page-bg-color;
+  @include box-shadow(1px 1px 8px 14px rgba(208, 221, 221, 0.8));
+  width: grid-width(16) - 2*$gw-gutter;
 }
 
 @import "welcome";
