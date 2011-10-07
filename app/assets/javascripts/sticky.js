@@ -13,9 +13,5 @@
       });
     }
   });
-
-  $(function() {
-    $('form').sticky();
-  });
 }(jQuery));
 
