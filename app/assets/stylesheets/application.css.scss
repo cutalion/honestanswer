@@ -82,7 +82,7 @@ header {
   @include box-shadow(1px 1px 2px 0 $box-shadow-color, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.4));
 }
 
-.answer, .question {
+div.answer, div.question {
   .timeago {
     float: right;
     margin-left: 2em;
@@ -97,10 +97,13 @@ header {
   }
 }
 
+form.answer, form.question {
+  padding-top: 1em;
+}
+
 .sticky {
   position: fixed;
   top: 0;
-  padding-top: 1em;
   background-color: $page-bg-color;
   @include box-shadow(1px 1px 8px 14px rgba(208, 221, 221, 0.8));
   width: grid-width(16) - 2*$gw-gutter;
