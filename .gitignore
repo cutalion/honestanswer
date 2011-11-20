@@ -8,3 +8,4 @@ tmp/
 .rspec
 .watchr
 .rvmrc
+.foreman

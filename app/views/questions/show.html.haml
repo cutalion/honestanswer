@@ -1,11 +1,15 @@
 %h1= @question.text
 - set_meta_tags :title => @question.text
 
-= simple_form_for [@question, @answer] do |f|
+= simple_form_for [@question, @answer], :remote => true do |f|
   = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest'
   = f.submit 'Answer'
 
-- @question.answers.each do |answer|
-  .answer
-    = timeago(answer.updated_at)
-    %p= answer.text
+= render @question.answers
+
+
+:javascript
+  var faye = new Faye.Client("/faye")
+  faye.subscribe('#{question_path(@question)}', function(data) {
+    eval(data);
+  });

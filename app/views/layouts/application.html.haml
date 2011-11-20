@@ -4,6 +4,7 @@
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
     = display_meta_tags :site => 'Honest Answer'
     = stylesheet_link_tag    "application"
+    = javascript_include_tag "#{root_url}faye.js"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
