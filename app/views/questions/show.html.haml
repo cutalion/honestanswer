@@ -2,7 +2,7 @@
 - set_meta_tags :title => @question.text
 
 = simple_form_for [@question, @answer], :remote => true do |f|
-  = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest'
+  = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest', :tabindex => 1
   = f.submit 'Answer'
 
 = render @question.answers
@@ -13,3 +13,4 @@
   faye.subscribe('#{question_path(@question)}', function(data) {
     eval(data);
   });
+  $('#answer_text').focus();

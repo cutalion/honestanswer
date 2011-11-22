@@ -7,3 +7,6 @@
     .question
       = timeago( (question.answers.last || question).updated_at )
       %p= link_to question.text, question_url(question)
+
+:javascript
+  $('#question_text').focus();

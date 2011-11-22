@@ -3,7 +3,6 @@ input[type="text"], input[type="password"], input[type="url"], input[type="email
   padding: 5px;
   color: $text-color;
   @include border-radius(4px);
-  @include box-shadow(1px 1px 3px 1px rgba(136, 136, 136, 0.4) inset);
 }
 
 input::-webkit-input-placeholder {
