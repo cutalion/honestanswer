@@ -1,3 +1,4 @@
 .answer
-  = timeago(answer.updated_at)
-  %p= answer.text
+  %p
+    = answer.text
+    = timeago(answer.updated_at)

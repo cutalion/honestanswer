@@ -1,5 +1,5 @@
 <% broadcast question_path(@question) do%>
-  $('#content').append("<%= escape_javascript render(@answer) %>");
+  $('.content .answers').append("<%= escape_javascript render(@answer) %>");
   $('.timeago').timeago();
 <% end %>
 $("#new_answer")[0].reset();

@@ -18,13 +18,12 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-  gem 'bourbon'
-  gem 'blueprint-rails'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
 gem 'haml'
-gem 'simple_form'
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'inherited_resources'
 gem 'encode_with_alphabet'
 gem 'meta-tags', :require => 'meta_tags'

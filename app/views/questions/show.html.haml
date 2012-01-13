@@ -1,11 +1,11 @@
 %h1= @question.text
 - set_meta_tags :title => @question.text
 
+.answers= render @question.answers
+
 = simple_form_for [@question, @answer], :remote => true do |f|
   = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest', :tabindex => 1
   = f.submit 'Answer'
-
-= render @question.answers
 
 
 :javascript

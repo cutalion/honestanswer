@@ -1,22 +1,32 @@
-!!! 5
+!!!
 %html
   %head
-    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
-    = display_meta_tags :site => 'Honest Answer'
+    = display_meta_tags :site => 'Honestanswer'
     = stylesheet_link_tag    "application"
     = javascript_include_tag "#{root_url}faye.js"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
-    %header
-      = link_to 'Honest Answer', root_path, :class => 'logo'
-      -# %ul.user_menu
-      -#   - if current_user
-      -#     %li== Hello, #{current_user.username}
-      -#     %li= link_to "Sign out", logout_path, :method => :delete
-      -#   - else
-      -#     %li= link_to "Sign in", login_path
-      -#     %li= link_to "Sign up", signup_path
-    - flash.each do |name, msg|
-      = content_tag :div, msg, :class => "flash #{name}" if msg.is_a?(String)
-    #content= yield
+  %body{:style => "padding-top: 60px"}
+    .topbar
+      .topbar-inner
+        .container-fluid
+          %h3= link_to "Honestanswer", "/"
+          -# %ul.nav
+          -#   %li= link_to "Link1", "/path1"
+          -#   %li= link_to "Link2", "/path2"
+          -#   %li= link_to "Link3", "/path3"
+    .container-fluid
+      .sidebar
+        .well
+          %h5 Recently Viewed Questions
+          - if viewed_questions.any?
+            %ul.unstyled
+              - viewed_questions.each do |question|
+                %li
+                  %p
+                  = link_to question.text, question_url(question)
+                  = timeago( (question.answers.last || question).updated_at )
+          - else 
+            %p No questions viewed yet.
+      .content
+        = yield
