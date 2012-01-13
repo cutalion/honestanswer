@@ -14,9 +14,9 @@
 $gw-column: 45px;
 $gw-gutter: 16px;
 $box-shadow-color: #888;
-$text-color: #444;
-$text-shadow-color: #eee;
-$page-bg-color: #d0dddd;
+$text-color: #ddd;
+$text-shadow-color: #333;
+$page-bg-color: #31363A;
 $content-bg-color: #c0cccc;
 
 body {
@@ -24,6 +24,7 @@ body {
   width: grid-width(16);
   margin: 0 auto;
   background-color: $page-bg-color;
+  background-image: url(/assets/concrete_wall.png);
   color: $text-color;
 }
 
@@ -33,6 +34,7 @@ div {
 }
 
 h1, h2, h3 {
+  color: $text-color;
   text-shadow: 1px 1px $text-shadow-color;
 }
 
@@ -76,6 +78,7 @@ header {
 }
 
 #content {
+  background: rgba(0, 0, 0, 0.25);
   padding: $gw-gutter;
   margin-top: $gw-gutter;
   @include border-radius(10px);
@@ -104,9 +107,8 @@ form.answer, form.question {
 .sticky {
   position: fixed;
   top: 0;
-  background-color: $page-bg-color;
-  @include box-shadow(1px 1px 8px 14px rgba(208, 221, 221, 0.8));
-  width: grid-width(16) - 2*$gw-gutter;
+  width: grid-width(15) + 2*$gw-gutter;
+  background: #000
 }
 
 @import "welcome";
