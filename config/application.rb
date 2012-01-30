@@ -53,6 +53,7 @@ module Honestanswer
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.middleware.insert_before 0, Faye::RackAdapter, :mount => '/faye', :timeout => 25
+    Faye::Logging.log_level = :debug
+    config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
   end
 end
