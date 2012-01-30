@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe QuestionsController do
-  let(:question1) { Question.make! }
-  let(:question2) { Question.make! }
+  let(:question1) { Factory :question }
+  let(:question2) { Factory :question }
 
   describe "GET 'show'" do
     let(:cookies)  { HashWithIndifferentAccess.new }

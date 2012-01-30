@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "AnswerTheQuestion" do
-  let(:question) { Question.make! }
+  let(:question) { Factory :question }
   it "should save my answer and leave me on the same page" do
     visit question_url(question)
     fill_in "answer[text]", :with => "My honest answer"

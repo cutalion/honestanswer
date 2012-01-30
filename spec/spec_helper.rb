@@ -29,7 +29,6 @@ RSpec.configure do |config|
   # config.use_transactional_fixtures = true
 
   config.before(:each) do
-    Machinist.reset_before_test
     DatabaseCleaner.orm = "mongoid" 
     DatabaseCleaner.strategy = :truncation, {:except => %w[ neighborhoods ]}
     DatabaseCleaner.clean

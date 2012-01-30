@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AnswersController do
-  let(:question) { Question.make! }
+  let(:question) { Factory :question }
   describe "POST 'create'" do
     context 'when everything is good' do
       before { post :create, :answer => { :text => 'answer' }, :question_id => question.token }

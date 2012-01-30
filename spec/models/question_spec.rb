@@ -27,15 +27,15 @@ describe Question do
   specify { Question::MAX_TOKEN_LENGTH.should == 12 }
 
   describe "#find_by_token" do
-    before { @question1 = Question.make! }
-    before { @question2 = Question.make! }
+    before { @question1 = Factory :question }
+    before { @question2 = Factory :question }
     specify { Question.find_by_token(@question1.token).should == @question1 }
     specify { Question.find_by_token(@question2.token).should == @question2 }
     it { expect { Question.find_by_token('token3') }.to raise_error(Mongoid::Errors::DocumentNotFound) }
   end
 
   describe "#to_param" do
-    let(:question) { Question.make! }
+    let(:question) { Factory :question }
     specify { question.to_param.should == question.token }
   end
 end

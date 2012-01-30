@@ -17,7 +17,7 @@ end
 module Honestanswer
   class Application < Rails::Application
     config.generators do |g|
-      g.fixture_replacement :machinist
+      g.fixture_replacement :factory_girl
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -53,6 +53,6 @@ module Honestanswer
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
+    config.middleware.insert_before 0, Faye::RackAdapter, :mount => '/faye', :timeout => 25
   end
 end
