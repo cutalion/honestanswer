@@ -9,8 +9,4 @@
 
 
 :javascript
-  var faye = new Faye.Client("/faye")
-  faye.subscribe('#{question_path(@question)}', function(data) {
-    eval(data);
-  });
   $('#answer_text').focus();
