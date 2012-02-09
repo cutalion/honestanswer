@@ -27,6 +27,7 @@ gem 'inherited_resources'
 gem 'encode_with_alphabet'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'private_pub'
+gem 'heroku', :group => :development
 
 group :development, :test do
   gem 'rspec-rails'
