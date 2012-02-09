@@ -1,0 +1,2 @@
+$ ->
+  $('#answer_text').focus()

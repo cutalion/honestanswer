@@ -89,6 +89,11 @@ GEM
     guard-rspec (0.6.0)
       guard (>= 0.10.0)
     haml (3.1.4)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     has_scope (0.5.1)
     hike (1.2.1)
     i18n (0.6.0)
@@ -219,7 +224,7 @@ DEPENDENCIES
   factory_girl_rails
   guard
   guard-rspec
-  haml
+  haml-rails
   inherited_resources
   jquery-rails
   json
