@@ -26,6 +26,7 @@ gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'inherited_resources'
 gem 'encode_with_alphabet'
 gem 'meta-tags', :require => 'meta_tags'
+gem 'private_pub'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -1,3 +1,5 @@
-$('.answers').append("<%= j render(@answer) %>");
-$('.timeago').timeago();
+<% publish_to question_path(@question) do %>
+  $('.answers').append("<%= j render(@answer) %>");
+  $('.timeago').timeago();
+<% end %>
 $("#new_answer")[0].reset();

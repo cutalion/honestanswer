@@ -7,6 +7,7 @@
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    = javascript_include_tag "application"
     / Le styles
     = stylesheet_link_tag    "application"
     :css
@@ -55,8 +56,3 @@
     
       %footer
         %p &copy; cutalion
-    /
-      Le javascript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
