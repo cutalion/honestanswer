@@ -4,16 +4,26 @@ class RandomUser
   end
 
   def call(env)
-    env['rack.session']['random_user.name'] ||= names[rand(names.length)]
-    env['rack.session']['random_user.id']   ||= Digest::MD5.hexdigest(rand(999999999999999).to_s)
+    env['rack.session']['random_user.name'] ||= self.class.random_name
+    env['rack.session']['random_user.id']   ||= self.class.random_id
     @app.call(env)
   end
 
-  def names
+  def self.random_name
+    names[rand(names.length)]
+  end
+
+  def self.random_id
+    Digest::MD5.hexdigest(rand(999999999999999).to_s)
+  end
+
+  private
+
+  def self.names
     names_list.split(/\n/).map(&:strip).delete_if(&:blank?)
   end
 
-  def names_list
+  def self.names_list
     <<-NAMES
       Pongo
       Roger
