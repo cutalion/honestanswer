@@ -11,6 +11,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @question = Question.new params[:question]
+    @question.author = current_user
     create! do |success, failure|
       success.html { flash[:notice] = nil; redirect_to resource }
       failure.html { redirect_to root_url }

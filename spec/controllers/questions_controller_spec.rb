@@ -3,6 +3,7 @@ require 'spec_helper'
 describe QuestionsController do
   let(:question1) { Factory :question }
   let(:question2) { Factory :question }
+  let(:user)      { User.new :name => 'Elvis', :id => '222' }
 
   describe "GET 'show'" do
     let(:cookies)  { HashWithIndifferentAccess.new }
@@ -29,8 +30,10 @@ describe QuestionsController do
 
   describe "POST 'create'" do
     context 'when everything is fine' do
+      before  { controller.stub :current_user => user }
       before  { post :create, :question => { :text => 'Who killed Kennedy?' } }
       specify { Question.last.text.should == 'Who killed Kennedy?' }
+      specify { Question.last.author.should == user }
       it      { should redirect_to question_url(Question.last.token) }
       specify { flash[:notice].should be_nil }
     end

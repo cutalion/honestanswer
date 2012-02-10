@@ -5,6 +5,8 @@ class AnswersController < ApplicationController
   respond_to :html, :js
 
   def create
+    @answer = parent.answers.build params[:answer]
+    @answer.author = current_user
     create! do |success, failure|
       success.html { 
         flash[:notice] = nil; 

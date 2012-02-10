@@ -1,10 +1,14 @@
-%h1= @question.text
+.question
+  %h1= @question.text
+  .author
+    = gravatar_for @question.author
+    .name= @question.author.name
 - set_meta_tags :title => @question.text
 
 .answers= render @question.answers
 
 = simple_form_for [@question, @answer], :remote => true do |f|
   = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest', :tabindex => 1
-  = f.submit 'Answer'
+  = f.submit 'Answer', :disable_with => 'Sending...'
 
 = subscribe_to question_path(@question)

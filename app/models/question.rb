@@ -4,8 +4,9 @@ class Question
 
   MAX_TOKEN_LENGTH = 12
 
-  field :text,  :type => String
-  field :token, :type => String
+  field :text,   :type => String
+  field :token,  :type => String
+  field :author, :type => User
 
   embeds_many :answers
 
@@ -23,6 +24,11 @@ class Question
   def to_param
     token
   end
+
+  def author_with_anonymous
+    self[:author].present? ? author_without_anonymous : User.random
+  end
+  alias_method_chain :author, :anonymous
 
   protected
 

@@ -5,6 +5,7 @@ describe Question do
 
   it { should have_field :text }
   it { should have_field :token }
+  it { should have_field :author }
   it { should have_field :created_at }
   it { should have_field :updated_at }
 
@@ -37,5 +38,9 @@ describe Question do
   describe "#to_param" do
     let(:question) { Factory :question }
     specify { question.to_param.should == question.token }
+  end
+
+  it "should return random author if author is not set (old records)" do
+    Question.new.author.should_not == Question.new.author
   end
 end

@@ -1,4 +1,7 @@
 .answer
-  %p
-    = answer.text
+  .author
+    = gravatar_for answer.author
+    .name= answer.author.name
+  %blockquote
+    %p= answer.text
     = timeago(answer.updated_at)
