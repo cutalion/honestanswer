@@ -30,6 +30,10 @@
             %span.i-bar
             %span.i-bar
           = link_to "Honestanswer", root_path, :class => 'brand'
+          .navbar-text.pull-right
+            .user
+              .name= current_user.name
+              = gravatar_for current_user
           .container-fluid.nav-collapse
             -# %ul.nav
             -#   %li= link_to "Link 1", "/path1"
