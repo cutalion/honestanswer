@@ -16,3 +16,4 @@ an absolutely fair (anonymous) answer.
 * Registration/Login
 * Notifications for registered users
 * See number of answers for each question
+* Nice look on iPhone
