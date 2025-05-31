@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new params[:question]
+    @question = Question.new(question_params)
     @question.author = current_user
     create! do |success, failure|
       success.html { flash[:notice] = nil; redirect_to resource }
@@ -24,5 +24,11 @@ class QuestionsController < ApplicationController
   def store_question
     questions = (cookies[:viewed_questions] || "").split(",") 
     cookies[:viewed_questions] = { :value => questions.unshift(@question.token).uniq.join(","), :expires => 1.year.from_now }
+  end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:text)
   end
 end

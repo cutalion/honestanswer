@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   respond_to :html, :js
 
   def create
-    @answer = parent.answers.build params[:answer]
+    @answer = parent.answers.build(answer_params)
     @answer.author = current_user
     create! do |success, failure|
       success.html { 
@@ -18,5 +18,11 @@ class AnswersController < ApplicationController
         redirect_to question_url(@question) 
       }
     end
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:text)
   end
 end

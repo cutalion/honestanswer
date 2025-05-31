@@ -1,0 +1,138 @@
+current directory: /app/vendor/bundle/ruby/3.2.0/gems/eventmachine-0.12.10/ext
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+checking for rb_trap_immediate in ruby.h,rubysig.h... no
+checking for rb_thread_blocking_region()... no
+checking for inotify_init() in sys/inotify.h... yes
+checking for writev() in sys/uio.h... yes
+checking for rb_thread_check_ints()... yes
+checking for rb_time_new()... yes
+checking for sys/event.h... no
+checking for epoll_create() in sys/epoll.h... yes
+creating Makefile
+
+current directory: /app/vendor/bundle/ruby/3.2.0/gems/eventmachine-0.12.10/ext
+make DESTDIR\= sitearchdir\=./.gem.20250529-8664-xrlyij sitelibdir\=./.gem.20250529-8664-xrlyij clean
+
+current directory: /app/vendor/bundle/ruby/3.2.0/gems/eventmachine-0.12.10/ext
+make DESTDIR\= sitearchdir\=./.gem.20250529-8664-xrlyij sitelibdir\=./.gem.20250529-8664-xrlyij
+compiling binder.cpp
+compiling cmain.cpp
+compiling cplusplus.cpp
+compiling ed.cpp
+ed.cpp: In member function ‘void ConnectionDescriptor::_WriteOutboundData()’:
+ed.cpp:979:28: warning: ignoring return value of ‘std::_Deque_iterator<_Tp, _Ref, _Ptr>::reference std::_Deque_iterator<_Tp, _Ref, _Ptr>::operator*() const [with _Tp = ConnectionDescriptor::OutboundPage; _Ref = ConnectionDescriptor::OutboundPage&; _Ptr = ConnectionDescriptor::OutboundPage*; reference = ConnectionDescriptor::OutboundPage&]’, declared with attribute ‘nodiscard’ [-Wunused-result]
+  979 |                         *op++;
+      |                            ^~
+In file included from /usr/include/c++/13/deque:66,
+                 from project.h:33,
+                 from ed.cpp:20:
+/usr/include/c++/13/bits/stl_deque.h:181:7: note: declared here
+  181 |       operator*() const _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+compiling em.cpp
+In file included from project.h:138,
+                 from em.cpp:24:
+em.cpp: In member function ‘bool EventMachine_t::_RunEpollOnce()’:
+em.h:35:20: error: ‘rb_thread_select’ was not declared in this scope; did you mean ‘rb_thread_sleep’?
+   35 |   #define EmSelect rb_thread_select
+      |                    ^~~~~~~~~~~~~~~~
+em.cpp:501:17: note: in expansion of macro ‘EmSelect’
+  501 |                 EmSelect (0, NULL, NULL, NULL, &tv);
+      |                 ^~~~~~~~
+em.cpp: In member function ‘int SelectData_t::_Select()’:
+em.h:35:20: error: ‘rb_thread_select’ was not declared in this scope; did you mean ‘rb_thread_sleep’?
+   35 |   #define EmSelect rb_thread_select
+      |                    ^~~~~~~~~~~~~~~~
+em.cpp:742:16: note: in expansion of macro ‘EmSelect’
+  742 |         return EmSelect (maxsocket+1, &fdreads, &fdwrites, &fderrors, &tv);
+      |                ^~~~~~~~
+em.cpp: In member function ‘bool EventMachine_t::_RunSelectOnce()’:
+em.h:35:20: error: ‘rb_thread_select’ was not declared in this scope; did you mean ‘rb_thread_sleep’?
+   35 |   #define EmSelect rb_thread_select
+      |                    ^~~~~~~~~~~~~~~~
+em.cpp:873:25: note: in expansion of macro ‘EmSelect’
+  873 |                         EmSelect (0, NULL, NULL, NULL, &tv);
+      |                         ^~~~~~~~
+em.cpp: In member function ‘void EventMachine_t::_ReadLoopBreaker()’:
+em.cpp:924:34: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+  924 |                 (*EventCallback)(NULL, EM_LOOPBREAK_SIGNAL, "", 0);
+      |                                  ^~~~
+em.cpp: In member function ‘bool EventMachine_t::_RunTimers()’:
+em.cpp:948:43: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+  948 |                         (*EventCallback) (NULL, EM_TIMER_FIRED, NULL, i->second.GetBinding());
+      |                                           ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::ConnectToServer(const char*, int, const char*, int)’:
+em.cpp:1089:29: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1089 |         unsigned long out = NULL;
+      |                             ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::ConnectToUnixServer(const char*)’:
+em.cpp:1218:29: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1218 |         unsigned long out = NULL;
+      |                             ^~~~
+em.cpp:1221:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1221 |                 return NULL;
+      |                        ^~~~
+em.cpp:1237:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1237 |                 return NULL;
+      |                        ^~~~
+em.cpp:1243:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1243 |                 return NULL;
+      |                        ^~~~
+em.cpp:1249:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1249 |                 return NULL;
+      |                        ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::CreateTcpServer(const char*, int)’:
+em.cpp:1453:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1453 |                 return NULL;
+      |                        ^~~~
+em.cpp:1455:40: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1455 |         unsigned long output_binding = NULL;
+      |                                        ^~~~
+em.cpp:1535:16: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1535 |         return NULL;
+      |                ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::OpenDatagramSocket(const char*, int)’:
+em.cpp:1545:40: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1545 |         unsigned long output_binding = NULL;
+      |                                        ^~~~
+em.cpp:1596:16: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1596 |         return NULL;
+      |                ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::_OpenFileForWriting(const char*)’:
+em.cpp:1773:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1773 |                 return NULL;
+      |                        ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::CreateUnixDomainServer(const char*)’:
+em.cpp:1805:40: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1805 |         unsigned long output_binding = NULL;
+      |                                        ^~~~
+em.cpp:1866:16: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1866 |         return NULL;
+      |                ^~~~
+em.cpp: In member function ‘const long unsigned int EventMachine_t::Socketpair(char* const*)’:
+em.cpp:1927:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1927 |                 return NULL;
+      |                        ^~~~
+em.cpp:1932:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1932 |                 return NULL;
+      |                        ^~~~
+em.cpp:1934:40: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1934 |         unsigned long output_binding = NULL;
+      |                                        ^~~~
+em.cpp:1938:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1938 |                 return NULL;
+      |                        ^~~~
+em.cpp:1948:24: warning: converting to non-pointer type ‘long unsigned int’ from NULL [-Wconversion-null]
+ 1948 |                 return NULL;
+      |                        ^~~~
+em.cpp: In member function ‘void EventMachine_t::SignalLoopBreaker()’:
+em.cpp:294:15: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  294 |         write (LoopBreakerWriter, "", 1);
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+em.cpp: In member function ‘void EventMachine_t::_ReadLoopBreaker()’:
+em.cpp:922:14: warning: ignoring return value of ‘ssize_t read(int, void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  922 |         read (LoopBreakerReader, buffer, sizeof(buffer));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:240: em.o] Error 1
+
+make failed, exit code 2

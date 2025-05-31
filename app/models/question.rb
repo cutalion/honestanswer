@@ -15,8 +15,6 @@ class Question
 
   before_validation :generate_token, :on => :create
 
-  attr_accessible :text
-
   def self.find_by_token(token)
     where(:token => token).first || raise(Mongoid::Errors::DocumentNotFound.new(self, token))
   end
