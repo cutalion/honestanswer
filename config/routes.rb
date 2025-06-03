@@ -1,4 +1,6 @@
 Honestanswer::Application.routes.draw do
+  mount ActionCable.server => '/cable'
+
   get "questions/show"
 
   root :to => "welcome#index"

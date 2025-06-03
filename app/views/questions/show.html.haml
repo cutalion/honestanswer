@@ -11,4 +11,23 @@
   = f.input_field :text, :label => false, :placeholder => 'Leave your answer, be honest', :tabindex => 1
   = f.submit 'Answer', :disable_with => 'Sending...'
 
-= subscribe_to question_path(@question)
+:javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    const consumer = ActionCable.createConsumer();
+
+    consumer.subscriptions.create(
+      { channel: "AnswerChannel", question_id: #{@question.id} },
+      {
+        received(data) {
+          const answersContainer = document.querySelector('.answers');
+          if (answersContainer) {
+            answersContainer.insertAdjacentHTML('beforeend', data.answer_html);
+            // Re-initialize timeago for any new elements
+            if (typeof jQuery !== 'undefined' && typeof jQuery.timeago !== 'undefined') {
+              jQuery('.timeago').timeago();
+            }
+          }
+        }
+      }
+    );
+  });

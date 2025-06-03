@@ -29,8 +29,6 @@ gem 'inherited_resources', '~> 1.14.0' # Updated for Rails 7.0 compatibility
 gem 'encode_with_alphabet'
 gem 'meta-tags', :require => 'meta_tags'
 
-gem 'private_pub' # Will be removed later
-
 # Heroku gem is for CLI, not usually needed in Gemfile for deployment
 # gem 'heroku', :group => :development
 
